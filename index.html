@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="courseApp" ng-controller="CourseController">
+
+    <!-- Header Section with Course Registration Title -->
+    <header>
+        <h1>Course Registration</h1>
+    </header>
+
+    <!-- Main Content -->
+    <div class="form-container">
+        <form name="courseForm" ng-submit="submitForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" ng-model="user.name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" ng-model="user.email" required>
+
+            <label for="course">Select Course:</label>
+            <select id="course" ng-model="user.course" required>
+                <option value="MEAN">MEAN</option>
+                <option value="Web">Web Development</option>
+                <option value="Java">Java</option>
+                <option value="C">C</option>
+            </select>
+
+            <label for="reason">Reason for selecting the course:</label>
+            <textarea id="reason" ng-model="user.reason" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p ng-if="message" class="ng-binding" ng-class="{'ng-binding-error': message.includes('Error') }">{{ message }}</p>
+    </div>
+
+</body>
+</html>
